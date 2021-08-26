@@ -44,12 +44,31 @@
 Vagrant.configure("2") do |config|
     config.vm.box = "ubuntu/xenial64"
     config.vm.network "private_network", ip: "192.168.10.100"
+    
+    # Synced app folder
+    config.vm.synced_folder "app", "/app"
 
     # Provisioning
     config.vm.provision "shell", path: "provision.sh", privileged: false
 
 end
 ```
-
 - Run `vagrant up`
 - type in the browswer `192.168.10.100`
+
+#### Let's install dependencies for our node app
+- install nodejs
+- `sudo apt-get install nodejs -y`
+- Ensure to install correct version
+```bash
+  sudo apt-get install python-software-properties
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+sudo apt-get install nodejs -y
+```
+
+- install pm2
+`sudo npm install pm2 -g`
+- Ensure to run this inside the app folder - install npm `npm install`
+- Launch the app `npm start`
+- `192.168.10.100:3000`
+-----------------------------------

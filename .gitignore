@@ -7,3 +7,5 @@ ubuntu-xenial-16.04-cloudimg-console.log
 .vagrant/machines/default/virtualbox/id
 .vagrant/machines/default/virtualbox/index_uuid      
 .vagrant/machines/default/virtualbox/private_key
+environment/
+app.zip
