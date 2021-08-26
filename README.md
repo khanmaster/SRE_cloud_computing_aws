@@ -51,3 +51,5 @@ Vagrant.configure("2") do |config|
 end
 ```
 
+- Run `vagrant up`
+- type in the browswer `192.168.10.100`
