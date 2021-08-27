@@ -72,3 +72,33 @@ sudo apt-get install nodejs -y
 - Launch the app `npm start`
 - `192.168.10.100:3000`
 -----------------------------------
+
+
+#### Let's set up Reverse proxy with ngingx
+```
+server {
+    listen 80;
+
+    server_name _;
+
+    location / {
+        proxy_pass http://localhost:3000;      
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade'; 
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;      
+    }
+}
+```
+- `sudo nginx -t`
+- `sudo systemctl restart nginx`
+- Restart the node app from the app location `npm start`
+- check your browser now without the port 3000
+
+- If you have mongodb installed 
+- `sudo nano /etc/mongo.conf`
+- `ip 127.0.0.1` change to `0.0.0.0` port: `27017`
+- restart mongo
+- enable mongo
+- check status to ensure it's active 
