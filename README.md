@@ -118,5 +118,12 @@ sudo apt-get install -y mongodb-org=3.2.20 mongodb-org-server=3.2.20 mongodb-org
 
 - change the mongod.conf ip to 0.0.0.0
 - back to app VM to create the env var `export DB_HOST=db-ip/posts` double check the syntax please
+```
+export DB_HOST=192.168.10.150:27017/posts
+
+echo "export DB_HOST=192.168.10.150:27017/posts" >> ~/.bashrc
+
+source ~/.bashrc
+```
 - cd app
 - sudo npm start
