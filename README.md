@@ -127,3 +127,5 @@ source ~/.bashrc
 ```
 - cd app
 - sudo npm start
+
+- `echo "DB_HOST=mongodb://192.168.10.150:27017/posts" | sudo tee -a /etc/environment`
